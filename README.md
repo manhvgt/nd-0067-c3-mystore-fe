@@ -1,12 +1,90 @@
 # MyStore Project Overview
 
-MyStore is Angular application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process. 
+MyStore is Angular application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
 ## Getting Started
 
-To use these files, simply merge the folders into the root directory of your scaffolded Angular application.
+This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and follow instruction below to setup and run the project.
 
-## Project Instructions
+## Instructions
+
+Before setting up and running this project, make sure below requirements are install and running in your environment.\
+- NodeJS & npm
+- Angular CLI
+To install, run... Go to project dirrectory and run below command on terminal (or cmd/windows powershell..).
+
+### Setup project and Install dependencies
+
+`npm install`
+
+- Check installation result on terminal. If project installed successfull, `node_module` directory will be created without error.
+
+### Environment Variables
+- It is required to create an `.env` file with below content and put it in project root directory.\
+
+<pre>
+SERVER_HOST='localhost'
+SERVER_PORT=4200
+</pre>
+
+### Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+### Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+### Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+### Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Future development
+
+- Support role-based authentication
+- Optimize DB structure and relationship
+- Create Frontend side
+  ...
+
+## License
+
+This project is modified and updated for study purpose on Udacity.
+Refer to https://github.com/manhvgt/nd-0067-c3-mystore-fe
+
+The original project (starter project) is belong to Udacity https://github.com/udacity/nd-0067-c3-angular-fundamentals-project-starter
+[License](LICENSE.txt)
+
+
+
+
+## Additional Resources (Development Note)
 
 #### Project introduction: MyStore
 
@@ -68,6 +146,3 @@ Feel free to use this overview and the rubric specifications to create this proj
 8. **Create routing** between components. Which components are linked by the router? How is the app routing module set up and configured to make sure the page doesn't reload during navigation?
 9. **Ensure that inputs are validated** in the client. For example, your checkout form needs to collect information from the user in order for them to complete the checkout process. How do you ensure that you are collecting accurate information from the user?
 
-## License
-
-[License](LICENSE.txt)
