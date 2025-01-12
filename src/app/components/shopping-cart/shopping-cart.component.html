@@ -15,20 +15,35 @@
         *ngFor="let item of cartItems$ | async"
         [cartItem]="item"
         (remove)="removeFromCart(item.product.id)"
-        (updateQuantity)="updateCartItem(item.product.id, item.quantity)">
+        (updateQuantity)="updateCartItem(item.product.id, item.quantity)"
+      >
       </app-cart-item>
     </div>
   </div>
   <div class="cart-summary" *ngIf="cartSummary$ | async as cartSummary">
     <p>Total Amount: {{ cartSummary.totalAmount | currency }}</p>
     <p>Discount Percentage: {{ cartSummary.discountPercentage }}%</p>
-    <p *ngIf="cartSummary.voucherApplied" style="color: green;">{{ cartSummary.voucherMessage }}</p>
+    <p *ngIf="cartSummary.voucherApplied" style="color: green">
+      {{ cartSummary.voucherMessage }}
+    </p>
     <p>Discount Amount: {{ cartSummary.discountAmount | currency }}</p>
-    <p style="font-weight: bold; color: rgb(0, 0, 255);">Payable Amount: {{ cartSummary.payableAmount | currency }}</p>
+    <p style="font-weight: bold; color: rgb(0, 0, 255)">
+      Payable Amount: {{ cartSummary.payableAmount | currency }}
+    </p>
     <div class="voucher-section">
-      <input type="text" [(ngModel)]="cartSummary.voucher" maxlength="15" placeholder="Enter voucher code" (input)="handleVoucherInput($event)">
-      <button (click)="applyVoucher()" [disabled]="!cartSummary.voucher">Apply Voucher</button>
+      <input
+        type="text"
+        [(ngModel)]="cartSummary.voucher"
+        maxlength="15"
+        placeholder="Enter voucher code"
+        (input)="handleVoucherInput($event)"
+      />
+      <button (click)="applyVoucher()" [disabled]="!cartSummary.voucher">
+        Apply Voucher
+      </button>
     </div>
-    <button (click)="checkout()" [disabled]="cartSummary.cartLength === 0">Proceed to Checkout</button>
+    <button (click)="checkout()" [disabled]="cartSummary.cartLength === 0">
+      Proceed to Checkout
+    </button>
   </div>
 </div>

@@ -10,13 +10,16 @@ import { CartService } from '../../services/cart.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './add-to-cart.component.html',
-  styleUrls: ['./add-to-cart.component.css']
+  styleUrls: ['./add-to-cart.component.css'],
 })
 export class AddToCartComponent {
   @Input() product!: Product;
   quantity: number = 1;
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   increment(): void {
     this.quantity++;

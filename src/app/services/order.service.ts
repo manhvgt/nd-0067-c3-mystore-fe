@@ -4,17 +4,21 @@ import { UserInformation } from '../models/user.model';
 import { CartItem, CartSummary } from '../models/cart.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
   private readonly orderFilePath = '/assets/output/order.json';
 
-  saveOrder(userInfo: UserInformation, cartItems: CartItem[], cartSummary: CartSummary): void {
+  saveOrder(
+    userInfo: UserInformation,
+    cartItems: CartItem[],
+    cartSummary: CartSummary
+  ): void {
     const orderData: OrderInformation = {
       userInfo,
       cartItems,
       cartSummary,
-      orderDate: new Date().toISOString()
+      orderDate: new Date().toISOString(),
     };
 
     // Load existing orders

@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './checkout-form.component.html',
-  styleUrls: ['./checkout-form.component.css']
+  styleUrls: ['./checkout-form.component.css'],
 })
 export class CheckoutFormComponent {
   userInformation: UserInformation;
@@ -48,18 +48,41 @@ export class CheckoutFormComponent {
 
   validateForm(): boolean {
     this.nameInvalid = !/^[a-zA-Z\s]+$/.test(this.userInformation.name);
-    this.emailInvalid = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(this.userInformation.email);
-    this.phoneNumberInvalid = !/^\+?[0-9]{1,15}$/.test(this.userInformation.phoneNumber);
-    this.cardNumberInvalid = !/^[0-9]{16}$/.test(this.userInformation.cardNumber);
+    this.emailInvalid = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(
+      this.userInformation.email
+    );
+    this.phoneNumberInvalid = !/^\+?[0-9]{1,15}$/.test(
+      this.userInformation.phoneNumber
+    );
+    this.cardNumberInvalid = !/^[0-9]{16}$/.test(
+      this.userInformation.cardNumber
+    );
     this.cardNameInvalid = !/^[a-zA-Z\s]+$/.test(this.userInformation.cardName);
     const currentDate = new Date();
-    const [year, month] = this.userInformation.validationDate.split('-').map(Number);
+    const [year, month] = this.userInformation.validationDate
+      .split('-')
+      .map(Number);
     const validationDate = new Date(year, month - 1);
-    this.validationDateInvalid = !this.userInformation.validationDate || validationDate < currentDate || (validationDate.getMonth() !== currentDate.getMonth() && validationDate < currentDate);
-    this.securityCodeInvalid = !/^[0-9]{3,4}$/.test(this.userInformation.securityCode);
+    this.validationDateInvalid =
+      !this.userInformation.validationDate ||
+      validationDate < currentDate ||
+      (validationDate.getMonth() !== currentDate.getMonth() &&
+        validationDate < currentDate);
+    this.securityCodeInvalid = !/^[0-9]{3,4}$/.test(
+      this.userInformation.securityCode
+    );
     this.addressInvalid = this.userInformation.address.trim() === '';
 
-    return !this.nameInvalid && !this.emailInvalid && !this.phoneNumberInvalid && !this.cardNumberInvalid && !this.cardNameInvalid && !this.validationDateInvalid && !this.securityCodeInvalid && !this.addressInvalid;
+    return (
+      !this.nameInvalid &&
+      !this.emailInvalid &&
+      !this.phoneNumberInvalid &&
+      !this.cardNumberInvalid &&
+      !this.cardNameInvalid &&
+      !this.validationDateInvalid &&
+      !this.securityCodeInvalid &&
+      !this.addressInvalid
+    );
   }
 
   submitForm(form: NgForm): void {

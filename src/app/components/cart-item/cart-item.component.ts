@@ -9,7 +9,7 @@ import { CartItem } from '../../models/cart.model';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cart-item.component.html',
-  styleUrls: ['./cart-item.component.css']
+  styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent {
   @Input() cartItem!: CartItem;
@@ -42,7 +42,10 @@ export class CartItemComponent {
   }
 
   updateAmount(): void {
-    this.cartService.updateCartItem(this.cartItem.product.id, this.cartItem.quantity);
+    this.cartService.updateCartItem(
+      this.cartItem.product.id,
+      this.cartItem.quantity
+    );
   }
 
   removeItem(): void {

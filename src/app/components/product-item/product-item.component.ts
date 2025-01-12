@@ -9,7 +9,7 @@ import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
   standalone: true,
   imports: [CommonModule, RouterModule, AddToCartComponent],
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent {
   @Input() product!: Product;

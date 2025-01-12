@@ -19,7 +19,9 @@
   <div class="cart-summary">
     <p>Total Amount: {{ cartSummary.totalAmount | currency }}</p>
     <p>Discount Amount: {{ cartSummary.discountAmount | currency }}</p>
-    <p style="font-weight: bold; color: rgb(0, 0, 255);">Payable Amount: {{ cartSummary.payableAmount | currency }}</p>
+    <p style="font-weight: bold; color: rgb(0, 0, 255)">
+      Payable Amount: {{ cartSummary.payableAmount | currency }}
+    </p>
   </div>
   <button *ngIf="showEditButton" (click)="navigateToCart()">Edit</button>
 </div>

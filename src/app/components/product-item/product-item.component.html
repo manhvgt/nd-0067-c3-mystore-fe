@@ -1,7 +1,7 @@
 <div class="product-card">
   <a [routerLink]="['/product', product.id]">
     <h2>{{ product.name }}</h2>
-    <img [src]="product.url" alt="{{ product.name }}">
+    <img [src]="product.url" alt="{{ product.name }}" />
   </a>
   <p>{{ product.price | currency }}"></p>
   <app-add-to-cart [product]="product"></app-add-to-cart>

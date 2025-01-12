@@ -1,10 +1,10 @@
 import { Product } from './product.model';
 
 export interface CartItem {
-    product: Product;
-    quantity: number;
-  }
-  
+  product: Product;
+  quantity: number;
+}
+
 export interface CartSummary {
   totalAmount: number;
   discountPercentage: number;
@@ -15,4 +15,3 @@ export interface CartSummary {
   voucherMessage: string;
   cartLength: number;
 }
-  

@@ -2,7 +2,12 @@
   <span>{{ cartItem.product.name }}</span>
   <span>{{ cartItem.product.price | currency }}</span>
   <div class="quantity-controls">
-    <input type="number" [(ngModel)]="cartItem.quantity" (input)="quantityChanged()" min="1">
+    <input
+      type="number"
+      [(ngModel)]="cartItem.quantity"
+      (input)="quantityChanged()"
+      min="1"
+    />
   </div>
   <span>{{ amount | currency }}</span>
   <button (click)="removeItem()">Remove</button>

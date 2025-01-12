@@ -4,13 +4,17 @@ import { CartItem, CartSummary } from '../models/cart.model';
 import { Product } from '../models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-  private cartItemsSubject = new BehaviorSubject<CartItem[]>(this.getCartItemsFromLocalStorage());
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>(
+    this.getCartItemsFromLocalStorage()
+  );
   cartItems$ = this.cartItemsSubject.asObservable();
 
-  private cartSummarySubject = new BehaviorSubject<CartSummary>(this.getCartSummaryFromLocalStorage());
+  private cartSummarySubject = new BehaviorSubject<CartSummary>(
+    this.getCartSummaryFromLocalStorage()
+  );
   cartSummary$ = this.cartSummarySubject.asObservable();
 
   get cartItems(): CartItem[] {
@@ -33,7 +37,9 @@ export class CartService {
   }
 
   addToCart(product: Product, quantity: number): void {
-    const existingItem = this.cartItems.find(cartItem => cartItem.product.id === product.id);
+    const existingItem = this.cartItems.find(
+      (cartItem) => cartItem.product.id === product.id
+    );
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
@@ -44,12 +50,14 @@ export class CartService {
   }
 
   removeFromCart(productId: number): void {
-    const updatedItems = this.cartItems.filter(item => item.product.id !== productId);
+    const updatedItems = this.cartItems.filter(
+      (item) => item.product.id !== productId
+    );
     this.cartItems = updatedItems;
   }
 
   updateCartItem(productId: number, quantity: number): void {
-    const updatedItems = this.cartItems.map(item =>
+    const updatedItems = this.cartItems.map((item) =>
       item.product.id === productId ? { ...item, quantity } : item
     );
     this.cartItems = updatedItems;
@@ -57,8 +65,12 @@ export class CartService {
 
   public updateCartSummary(): void {
     const cartItems = this.cartItems;
-    const totalAmount = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
-    const discountAmount = (totalAmount * this.cartSummary.discountPercentage) / 100;
+    const totalAmount = cartItems.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0
+    );
+    const discountAmount =
+      (totalAmount * this.cartSummary.discountPercentage) / 100;
     const payableAmount = totalAmount - discountAmount;
 
     this.cartSummary = {
@@ -66,13 +78,13 @@ export class CartService {
       totalAmount,
       discountAmount,
       payableAmount,
-      cartLength: cartItems.length
+      cartLength: cartItems.length,
     };
     this.saveCartSummaryToLocalStorage(this.cartSummary);
   }
 
   clearCart(): void {
-    this.cartItems.forEach(item => {
+    this.cartItems.forEach((item) => {
       this.removeFromCart(item.product.id);
     });
     this.updateCartSummary();
@@ -97,15 +109,17 @@ export class CartService {
 
   private getCartSummaryFromLocalStorage(): CartSummary {
     const summary = localStorage.getItem('cartSummary');
-    return summary ? JSON.parse(summary) : {
-      totalAmount: 0,
-      discountPercentage: 0,
-      discountAmount: 0,
-      payableAmount: 0,
-      voucherApplied: false,
-      voucher: '',
-      voucherMessage: '',
-      cartLength: 0
-    };
+    return summary
+      ? JSON.parse(summary)
+      : {
+          totalAmount: 0,
+          discountPercentage: 0,
+          discountAmount: 0,
+          payableAmount: 0,
+          voucherApplied: false,
+          voucher: '',
+          voucherMessage: '',
+          cartLength: 0,
+        };
   }
 }

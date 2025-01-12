@@ -11,7 +11,7 @@ import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
   standalone: true,
   imports: [CommonModule, AddToCartComponent],
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
@@ -22,11 +22,11 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const productId = Number(params.get('id'));
       this.productService.getProducts().subscribe((products: Product[]) => {
-        this.product = products.find(p => p.id === productId);
-        console.log('Fetched product:', this.product);  // Log to verify
+        this.product = products.find((p) => p.id === productId);
+        console.log('Fetched product:', this.product); // Log to verify
       });
     });
   }

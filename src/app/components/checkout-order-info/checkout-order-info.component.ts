@@ -8,14 +8,14 @@ import { CartItem, CartSummary } from '../../models/cart.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './checkout-order-info.component.html',
-  styleUrls: ['./checkout-order-info.component.css']
+  styleUrls: ['./checkout-order-info.component.css'],
 })
 export class CheckoutOrderInfoComponent {
   @Input() cartItems: CartItem[] = [];
   @Input() cartSummary = {
     totalAmount: 0,
     discountAmount: 0,
-    payableAmount: 0
+    payableAmount: 0,
   } as CartSummary;
   @Input() showEditButton: boolean = true;
 

@@ -14,7 +14,7 @@ import { CheckoutOrderInfoComponent } from '../checkout-order-info/checkout-orde
   standalone: true,
   imports: [CommonModule, CheckoutFormComponent, CheckoutOrderInfoComponent],
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
   userInformation: UserInformation;
@@ -31,35 +31,38 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.userInfo$.subscribe(info => {
+    this.userService.userInfo$.subscribe((info) => {
       this.userInformation = info;
     });
 
-    this.cartService.cartItems$.subscribe(items => {
+    this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
 
-    this.cartService.cartSummary$.subscribe(summary => {
+    this.cartService.cartSummary$.subscribe((summary) => {
       this.cartSummary = summary;
     });
   }
 
   submitOrder(): void {
     console.log('Submit order event received');
-    
-    if(this.cartItems.length === 0) {
+
+    if (this.cartItems.length === 0) {
       console.log('Empty cart. Not able to submit.', this.userInformation);
       alert('Cart is empty! No Order has not been submitted yet!');
       this.router.navigate(['/cart']);
     } else {
-
       this.userService.saveUserInfo(this.userInformation);
-      this.orderService.saveOrder(this.userInformation, this.cartItems, this.cartSummary);
+      this.orderService.saveOrder(
+        this.userInformation,
+        this.cartItems,
+        this.cartSummary
+      );
 
       // Handle order submission logic
       console.log('Order submitted', this.userInformation);
       alert('Order successfully submitted!');
-      
+
       // Clear the cart after showing the success message
       this.cartService.clearCart();
       console.log('Cart cleared');

@@ -1,25 +1,24 @@
 /* Add any necessary styles for the AddToCartComponent */
 .add-to-cart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .quantity-controls {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .quantity-controls button {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-  }
-  
-  .quantity-controls input {
-    width: 50px;
-    text-align: center;
-    margin: 0 5px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.quantity-controls input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}

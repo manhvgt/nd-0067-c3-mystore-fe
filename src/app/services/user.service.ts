@@ -3,10 +3,12 @@ import { BehaviorSubject } from 'rxjs';
 import { UserInformation } from '../models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-  private userInfoSubject = new BehaviorSubject<UserInformation>(this.getUserInfoFromLocalStorage());
+  private userInfoSubject = new BehaviorSubject<UserInformation>(
+    this.getUserInfoFromLocalStorage()
+  );
   userInfo$ = this.userInfoSubject.asObservable();
 
   get userInfo(): UserInformation {
@@ -28,16 +30,18 @@ export class UserService {
 
   private getUserInfoFromLocalStorage(): UserInformation {
     const info = localStorage.getItem('userInfo');
-    return info ? JSON.parse(info) : {
-      name: '',
-      phoneNumber: '',
-      email: '',
-      cardNumber: '',
-      cardName: '',
-      validationDate: '',
-      securityCode: '',
-      address: '',
-      userNote: ''
-    };
+    return info
+      ? JSON.parse(info)
+      : {
+          name: '',
+          phoneNumber: '',
+          email: '',
+          cardNumber: '',
+          cardName: '',
+          validationDate: '',
+          securityCode: '',
+          address: '',
+          userNote: '',
+        };
   }
 }

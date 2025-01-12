@@ -8,7 +8,8 @@
   margin: 10px 0 5px;
 }
 
-.checkout-form input, .checkout-form textarea {
+.checkout-form input,
+.checkout-form textarea {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -23,7 +24,7 @@
 
 .checkout-form button {
   font-size: 1.1rem;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   border: none;

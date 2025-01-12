@@ -8,9 +8,8 @@ describe('CheckoutFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CheckoutFormComponent]
-    })
-    .compileComponents();
+      imports: [CheckoutFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CheckoutFormComponent);
     component = fixture.componentInstance;

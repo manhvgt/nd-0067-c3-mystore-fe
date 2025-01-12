@@ -12,7 +12,7 @@ import { CheckoutOrderInfoComponent } from '../checkout-order-info/checkout-orde
   standalone: true,
   imports: [CommonModule, CheckoutOrderInfoComponent],
   templateUrl: './order-confirmation.component.html',
-  styleUrls: ['./order-confirmation.component.css']
+  styleUrls: ['./order-confirmation.component.css'],
 })
 export class OrderConfirmationComponent implements OnInit {
   orderInformation: OrderInformation | null = null;

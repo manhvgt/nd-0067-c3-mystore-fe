@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 import { Product } from '../models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   private dataUrl = '/assets/data.json';
@@ -13,8 +13,8 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.dataUrl).pipe(
-      tap((data: Product[]) => console.log('Fetched products:', data))
-    );
+    return this.http
+      .get<Product[]>(this.dataUrl)
+      .pipe(tap((data: Product[]) => console.log('Fetched products:', data)));
   }
 }

@@ -10,19 +10,22 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, CartItemComponent, FormsModule],
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.css'],
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems$;
   cartSummary$;
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {
     this.cartItems$ = this.cartService.cartItems$;
     this.cartSummary$ = this.cartService.cartSummary$;
   }
 
   ngOnInit(): void {
-    this.cartItems$.subscribe(cartItems => {
+    this.cartItems$.subscribe((cartItems) => {
       this.cartService.updateCartSummary();
     });
   }
