@@ -1,0 +1,47 @@
+<div class="order-confirmation">
+  <h2>Order Confirmation</h2>
+  <p>Your order has been successfully submitted!</p>
+
+  <div *ngIf="orderInformation">
+    <div class="user-info-box">
+      <h3>User Information</h3>
+      <table class="user-info-table">
+        <tr>
+          <td><label>Name:</label></td>
+          <td><span>{{ orderInformation.userInfo.name }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Phone Number:</label></td>
+          <td><span>{{ orderInformation.userInfo.phoneNumber }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Email:</label></td>
+          <td><span>{{ orderInformation.userInfo.email }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Address:</label></td>
+          <td><span>{{ orderInformation.userInfo.address }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Card Name:</label></td>
+          <td><span>{{ orderInformation.userInfo.cardName }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Validation Date:</label></td>
+          <td><span>{{ orderInformation.userInfo.validationDate }}</span></td>
+        </tr>
+        <tr>
+          <td><label>Security Code:</label></td>
+          <td><span>{{ orderInformation.userInfo.securityCode }}</span></td>
+        </tr>
+        <tr>
+          <td><label>User Note:</label></td>
+          <td><span>{{ orderInformation.userInfo.userNote }}</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <app-checkout-order-info [cartItems]="orderInformation.cartItems" [cartSummary]="orderInformation.cartSummary" [showEditButton]="false"></app-checkout-order-info>
+  </div>
+  <button (click)="backToHome()">Back to Home</button>
+</div>

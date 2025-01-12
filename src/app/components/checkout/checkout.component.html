@@ -1,0 +1,8 @@
+<div class="checkout">
+    <app-checkout-order-info
+      [cartItems]="cartItems"
+      [cartSummary]="cartSummary">
+    </app-checkout-order-info>
+    <app-checkout-form (submitOrder)="submitOrder()"></app-checkout-form>
+</div>
+  

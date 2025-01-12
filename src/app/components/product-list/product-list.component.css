@@ -1,12 +1,14 @@
-.product-index {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1024px;
-  margin-bottom: 64px;
-}
-
-.product-container {
-  display: flex;
-  justify-content: center;
-}
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .product-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  

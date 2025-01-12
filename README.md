@@ -7,6 +7,37 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and follow instruction below to setup and run the project.
 
+## Structure
+<pre>
+Project Root Directory
+├── readme.md
+├── src
+│   ├── app
+│   │   ├── components
+│   │   │   ├── app
+│   │   │   ├── checkout
+│   │   │   ├── ...
+│   │   │   └── order-confirmation
+│   │   ├── models
+│   │   ├── services
+│   │   ├── styles
+│   │   ├── app.config.ts
+│   │   └── app.routes.ts
+│   ├── assets
+│   │   └── data.json
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.ts
+├── .env
+├── .gitignore
+├── package.json
+├── package.json.lock
+├── .prettierrc
+├── tsconfig.json
+├── tsconfig.app.json
+└── tsconfig.spec.json
+</pre>
+
 ## Instructions
 
 Before setting up and running this project, make sure below requirements are install and running in your environment.\
@@ -82,8 +113,6 @@ The original project (starter project) is belong to Udacity https://github.com/u
 [License](LICENSE.txt)
 
 
-
-
 ## Additional Resources (Development Note)
 
 #### Project introduction: MyStore
@@ -93,33 +122,6 @@ You've completed the course! You know how to create a single-page application to
 ![MyStore shopping flow](shoppingflow.gif)
 
 To showcase your new skills, you'll build an e-commerce website – an application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process. 
-
-#### How will this help my career?
-
-Many applications that you use daily include the functionality to read, write, update, and delete content provided by APIs. For example, a typical image-sharing social media application may allow you to view photos, add photos, edit them, and remove them from an album or user account. Similar to such applications, this project relies on input from users of the application. After completing this project, you'll solidify your skills in designing and creating interactive CRUD applications in the real world.
-
-#### Before you begin
-
-Throughout the course, you've learned a lot about Angular components, services, modules, services, routing, and data flow. Before you begin scaffolding the application, ask yourself:
-
-* How do I fetch and use data from an external API (or JSON data file)?
-* What does a logical hierarchy of components look like? For example, which components should be parent components, and which components should be their children components?
-* How do I collect input from the user, using controlled form elements as the "source of truth" of such data?
-* What are events in Angular, and how do I listen and respond to them?
-* What is a model, and how do I create one in TypeScript?
-* How do I pass data between parent and child components? Hint: Which decorators should be used?
-* How do I pass data between sibling or otherwise "unrelated" components?
-* How is routing set up in the templates? Likewise, how do I configure the app routing module to support this?
-
-#### Starter code
-
-The Angular CLI allows you to quickly scaffold a new application, as well as generate all necessary components, services, and modules. While you'll use the CLI to create a new application from scratch, we've provided some code and data to help you along the way:
-
-* **CSS**. The provided stylesheets are not required, but you may use the included CSS classes to help you style the application. Feel free to use your creativity and build a UI as you see fit!
-
-* `data.json`. You may fetch the list of products for your store from the API created in the previous course of this Nanodegree program. In lieu of using that data, you may also choose to have your application read the provided `data.json` file to populate your store.
-
-If you choose to use the starter code, all files can be downloaded here. To use them, just merge the folders into the root directory of your scaffolded application.
 
 #### Project features
 

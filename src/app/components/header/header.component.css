@@ -1,0 +1,42 @@
+/* Styling for the navigation */
+nav {
+  background-color: #26ff00;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+/* Styling for the title link */
+.title-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the navigation menu */
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  color: rgb(38, 128, 231);
+  text-decoration: underline;
+}

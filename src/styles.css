@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* Add global styles for link-able items */
+a {
+    cursor: pointer;
+    text-decoration: none;  /* Optional: remove underline by default */
+}
+
+a:hover {
+    text-decoration: underline;  /* Optional: add underline on hover */
+}

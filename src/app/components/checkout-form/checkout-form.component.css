@@ -1,0 +1,43 @@
+.checkout-form {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.checkout-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.checkout-form input, .checkout-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Disable resizing for text areas */
+.checkout-form textarea {
+  resize: none;
+}
+
+.checkout-form button {
+  font-size: 1.1rem;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}

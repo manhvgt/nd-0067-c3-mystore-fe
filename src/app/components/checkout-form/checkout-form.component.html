@@ -1,0 +1,95 @@
+<div class="checkout-form">
+  <h2>User Information</h2>
+  <form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="userInformation.name"
+      required
+    />
+    <div *ngIf="nameInvalid" class="error-message">Name is required and must contain only letters and spaces.</div>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input
+      type="tel"
+      id="phoneNumber"
+      name="phoneNumber"
+      [(ngModel)]="userInformation.phoneNumber"
+      required
+      (input)="validatePhoneNumber($event)"
+    />
+    <div *ngIf="phoneNumberInvalid" class="error-message">Phone Number is required and must be a valid number.</div>
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="userInformation.email"
+      required
+    />
+    <div *ngIf="emailInvalid" class="error-message">Email is required and must be a valid email address.</div>
+
+    <label for="cardNumber">Card Number:</label>
+    <input
+      type="text"
+      id="cardNumber"
+      name="cardNumber"
+      [(ngModel)]="userInformation.cardNumber"
+      required
+      (input)="validateCardNumber($event)"
+    />
+    <div *ngIf="cardNumberInvalid" class="error-message">Card Number is required and must be exactly 16 digits.</div>
+
+    <label for="cardName">Name on Card:</label>
+    <input
+      type="text"
+      id="cardName"
+      name="cardName"
+      [(ngModel)]="userInformation.cardName"
+      required
+    />
+    <div *ngIf="cardNameInvalid" class="error-message">Name on Card is required and must contain only letters and spaces.</div>
+
+    <label for="validationDate">Validation Date:</label>
+    <input
+      type="month"
+      id="validationDate"
+      name="validationDate"
+      [(ngModel)]="userInformation.validationDate"
+      required
+    />
+    <div *ngIf="validationDateInvalid" class="error-message">Validation Date is required and must be in the future or the same month.</div>
+
+    <label for="securityCode">Security Code:</label>
+    <input
+      type="text"
+      id="securityCode"
+      name="securityCode"
+      [(ngModel)]="userInformation.securityCode"
+      required
+      (input)="validateSecurityCode($event)"
+    />
+    <div *ngIf="securityCodeInvalid" class="error-message">Security Code is required and must be 3 or 4 digits.</div>
+
+    <label for="address">Address:</label>
+    <textarea
+      id="address"
+      name="address"
+      [(ngModel)]="userInformation.address"
+      required
+    ></textarea>
+    <div *ngIf="addressInvalid" class="error-message">Address is required.</div>
+
+    <label for="userNote">User Note:</label>
+    <textarea
+      id="userNote"
+      name="userNote"
+      [(ngModel)]="userInformation.userNote"
+    ></textarea>
+
+    <button type="submit">Confirm and Submit</button>
+  </form>
+</div>

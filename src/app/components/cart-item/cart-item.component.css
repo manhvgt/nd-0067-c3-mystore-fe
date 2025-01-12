@@ -1,0 +1,41 @@
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cart-item span {
+    padding: 5px;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-controls button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  .quantity-controls input {
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+  }
+  
+  .cart-item button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cart-item button:hover {
+    background-color: #ff3333;
+  }
+  
