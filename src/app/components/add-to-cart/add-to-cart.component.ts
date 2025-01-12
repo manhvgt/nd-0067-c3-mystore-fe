@@ -33,6 +33,7 @@ export class AddToCartComponent {
 
   addToCart(): void {
     this.cartService.addToCart(this.product, this.quantity);
+    alert('Product is successfully added to shopping cart!');
     this.router.navigate(['/cart']);
   }
 }
