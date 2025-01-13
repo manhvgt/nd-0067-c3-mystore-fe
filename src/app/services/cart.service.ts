@@ -50,10 +50,18 @@ export class CartService {
   }
 
   removeFromCart(productId: number): void {
+    // Find removed item
+    let removedItemName = '';
+    const items = this.cartItems;
+    const itemIndex = items.findIndex(item => item.product.id === productId);
+    if(itemIndex != -1) {
+      removedItemName = items.splice(itemIndex, 1)[0].product.name;
+    }
     const updatedItems = this.cartItems.filter(
       (item) => item.product.id !== productId
     );
     this.cartItems = updatedItems;
+    alert(`${removedItemName} has been removed from your cart.`);
   }
 
   updateCartItem(productId: number, quantity: number): void {
@@ -84,15 +92,14 @@ export class CartService {
   }
 
   clearCart(): void {
-    this.cartItems.forEach((item) => {
-      this.removeFromCart(item.product.id);
-    });
+    this.cartItemsSubject.next([]);
     this.updateCartSummary();
     this.cartSummary.voucherApplied = false;
     this.cartSummary.voucherMessage = '';
     this.cartSummary.voucher = '';
     this.cartSummary.discountPercentage = 0;
   }
+  
 
   private saveCartItemsToLocalStorage(items: CartItem[]): void {
     localStorage.setItem('cartItems', JSON.stringify(items));

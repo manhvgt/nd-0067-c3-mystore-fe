@@ -28,49 +28,34 @@ export class CheckoutFormComponent {
     this.userInformation = this.userService.userInfo;
   }
 
-  validatePhoneNumber(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    input.value = input.value.replace(/[^\d\+]/g, '').substring(0, 15);
-    this.userInformation.phoneNumber = input.value;
+  validatePhoneNumber(value: string): void {
+    this.userInformation.phoneNumber = value.replace(/[^\d\+]/g, '').substring(0, 12);
+    this.phoneNumberInvalid = !(this.userInformation.phoneNumber.length >= 8 && this.userInformation.phoneNumber.length <= 12 && /^\+?[0-9]{8,12}$/.test(this.userInformation.phoneNumber));
   }
 
-  validateCardNumber(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    input.value = input.value.replace(/\D/g, '').substring(0, 16);
-    this.userInformation.cardNumber = input.value;
+  validateCardNumber(value: string): void {
+    this.userInformation.cardNumber = value.replace(/\D/g, '').substring(0, 16);
+    this.cardNumberInvalid = !(this.userInformation.cardNumber.length === 16 && /^[0-9]{16}$/.test(this.userInformation.cardNumber));
   }
 
-  validateSecurityCode(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    input.value = input.value.replace(/\D/g, '').substring(0, 4);
-    this.userInformation.securityCode = input.value;
+  validateSecurityCode(value: string): void {
+    this.userInformation.securityCode = value.replace(/\D/g, '').substring(0, 4);
+    this.securityCodeInvalid = !(this.userInformation.securityCode.length >= 3 && this.userInformation.securityCode.length <= 4 && /^[0-9]{3,4}$/.test(this.userInformation.securityCode));
   }
 
   validateForm(): boolean {
     this.nameInvalid = !/^[a-zA-Z\s]+$/.test(this.userInformation.name);
-    this.emailInvalid = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(
-      this.userInformation.email
-    );
-    this.phoneNumberInvalid = !/^\+?[0-9]{1,15}$/.test(
-      this.userInformation.phoneNumber
-    );
-    this.cardNumberInvalid = !/^[0-9]{16}$/.test(
-      this.userInformation.cardNumber
-    );
+    this.emailInvalid = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(this.userInformation.email);
+    this.phoneNumberInvalid = !(this.userInformation.phoneNumber.length >= 8 && this.userInformation.phoneNumber.length <= 12 && /^\+?[0-9]{8,12}$/.test(this.userInformation.phoneNumber));
+    this.cardNumberInvalid = !(this.userInformation.cardNumber.length === 16 && /^[0-9]{16}$/.test(this.userInformation.cardNumber));
     this.cardNameInvalid = !/^[a-zA-Z\s]+$/.test(this.userInformation.cardName);
     const currentDate = new Date();
     const [year, month] = this.userInformation.validationDate
       .split('-')
       .map(Number);
     const validationDate = new Date(year, month - 1);
-    this.validationDateInvalid =
-      !this.userInformation.validationDate ||
-      validationDate < currentDate ||
-      (validationDate.getMonth() !== currentDate.getMonth() &&
-        validationDate < currentDate);
-    this.securityCodeInvalid = !/^[0-9]{3,4}$/.test(
-      this.userInformation.securityCode
-    );
+    this.validationDateInvalid = !this.userInformation.validationDate || validationDate < currentDate || (validationDate.getMonth() !== currentDate.getMonth() && validationDate < currentDate);
+    this.securityCodeInvalid = !(this.userInformation.securityCode.length >= 3 && this.userInformation.securityCode.length <= 4 && /^[0-9]{3,4}$/.test(this.userInformation.securityCode));
     this.addressInvalid = this.userInformation.address.trim() === '';
 
     return (

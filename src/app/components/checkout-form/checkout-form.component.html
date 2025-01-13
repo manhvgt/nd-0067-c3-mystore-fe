@@ -19,11 +19,12 @@
       id="phoneNumber"
       name="phoneNumber"
       [(ngModel)]="userInformation.phoneNumber"
+      (ngModelChange)="validatePhoneNumber($event)"
       required
-      (input)="validatePhoneNumber($event)"
+      maxlength="12"
     />
     <div *ngIf="phoneNumberInvalid" class="error-message">
-      Phone Number is required and must be a valid number.
+      Phone Number is required and must be between 8 to 12 digits.
     </div>
 
     <label for="email">Email:</label>
@@ -44,8 +45,9 @@
       id="cardNumber"
       name="cardNumber"
       [(ngModel)]="userInformation.cardNumber"
+      (ngModelChange)="validateCardNumber($event)"
       required
-      (input)="validateCardNumber($event)"
+      maxlength="16"
     />
     <div *ngIf="cardNumberInvalid" class="error-message">
       Card Number is required and must be exactly 16 digits.
@@ -72,7 +74,7 @@
       required
     />
     <div *ngIf="validationDateInvalid" class="error-message">
-      Validation Date is required and must be in the future or the same month.
+      Validation Date is required and must be in the future or the same month as the current month.
     </div>
 
     <label for="securityCode">Security Code:</label>
@@ -81,8 +83,9 @@
       id="securityCode"
       name="securityCode"
       [(ngModel)]="userInformation.securityCode"
+      (ngModelChange)="validateSecurityCode($event)"
       required
-      (input)="validateSecurityCode($event)"
+      maxlength="4"
     />
     <div *ngIf="securityCodeInvalid" class="error-message">
       Security Code is required and must be 3 or 4 digits.
